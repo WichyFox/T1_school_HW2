@@ -1,9 +1,9 @@
-package com.example.HW2.credit_processing.kafka;
+package com.example.HW_2.credit_processing.kafka;
 
-import com.example.HW2.credit_processing.entity.ProductRegistry;
-import com.example.HW2.credit_processing.entity.PaymentRegistry;
-import com.example.HW2.credit_processing.repository.ProductRegistryRepository;
-import com.example.HW2.credit_processing.repository.PaymentRegistryRepository;
+import com.example.HW_2.credit_processing.entity.ProductRegistry;
+import com.example.HW_2.credit_processing.entity.PaymentRegistry;
+import com.example.HW_2.credit_processing.repository.ProductRegistryRepository;
+import com.example.HW_2.credit_processing.repository.PaymentRegistryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -25,7 +25,7 @@ public class KafkaListeners {
 
     @KafkaListener(topics = "client_credit_products", groupId = "credit-service")
     public void consumeCreditProducts(String message) {
-        // message format: "clientId,productId,sum,interestRate,monthCount"
+        //clientId,productId,sum,interestRate,monthCount
         String[] parts = message.split(",");
         Long clientId = Long.valueOf(parts[0]);
         Long productId = Long.valueOf(parts[1]);
@@ -82,7 +82,7 @@ public class KafkaListeners {
             paymentRegistryRepository.save(payment);
         }
 
-        System.out.println("✅ Credit approved for client " + clientId);
+        System.out.println("Credit approved for client " + clientId);
     }
 
     private BigDecimal calculateAnnuity(BigDecimal sum, BigDecimal annualRate, int months) {

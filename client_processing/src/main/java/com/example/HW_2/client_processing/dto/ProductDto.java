@@ -1,7 +1,7 @@
-package com.example.HW2.client_processing.dto;
+package com.example.HW_2.client_processing.dto;
 
-import com.example.HW2.client_processing.entity.Product;
-import com.example.HW2.client_processing.enums.ProductKey;
+import com.example.HW_2.client_processing.entity.Product;
+import com.example.HW_2.client_processing.enums.ProductKey;
 import lombok.*;
 
 @Getter
@@ -16,7 +16,6 @@ public class ProductDto {
     private ProductKey key;
     private String productId;
 
-    // Маппинг из entity в DTO
     public static ProductDto fromEntity(Product product) {
         return ProductDto.builder()
                 .id(product.getId())
@@ -26,7 +25,6 @@ public class ProductDto {
                 .build();
     }
 
-    // Маппинг из DTO в entity (необязательно, можно в сервисе)
     public Product toEntity() {
         return Product.builder()
                 .id(this.id)

@@ -1,7 +1,7 @@
-package com.example.HW2.client_processing.service;
+package com.example.HW_2.client_processing.service;
 
-import com.example.HW2.client_processing.entity.User;
-import com.example.HW2.client_processing.repository.UserRepository;
+import com.example.HW_2.client_processing.entity.User;
+import com.example.HW_2.client_processing.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

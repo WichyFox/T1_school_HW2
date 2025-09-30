@@ -1,8 +1,8 @@
-package com.example.HW2.client_processing.service;
+package com.example.HW_2.client_processing.service;
 
-import com.example.HW2.client_processing.dto.ClientProductDto;
-import com.example.HW2.client_processing.entity.ClientProduct;
-import com.example.HW2.client_processing.repository.ClientProductRepository;
+import com.example.HW_2.client_processing.dto.ClientProductDto;
+import com.example.HW_2.client_processing.entity.ClientProduct;
+import com.example.HW_2.client_processing.repository.ClientProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

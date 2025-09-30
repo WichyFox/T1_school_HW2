@@ -1,6 +1,6 @@
-package com.example.HW2.credit_processing.kafka;
+package com.example.HW_2.credit_processing.kafka;
 
-import com.example.HW2.credit_processing.dto.CreditResponseDto;
+import com.example.HW_2.credit_processing.dto.CreditResponseDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;

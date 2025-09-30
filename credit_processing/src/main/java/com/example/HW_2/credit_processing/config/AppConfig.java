@@ -1,4 +1,4 @@
-package com.example.HW2.credit_processing.config;
+package com.example.HW_2.credit_processing.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

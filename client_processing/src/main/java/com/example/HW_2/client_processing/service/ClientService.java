@@ -1,10 +1,10 @@
-package com.example.HW2.client_processing.service;
+package com.example.HW_2.client_processing.service;
 
-import com.example.HW2.client_processing.dto.ClientRegistrationRequest;
-import com.example.HW2.client_processing.entity.BlacklistRegistry;
-import com.example.HW2.client_processing.entity.Client;
-import com.example.HW2.client_processing.repository.BlacklistRegistryRepository;
-import com.example.HW2.client_processing.repository.ClientRepository;
+import com.example.HW_2.client_processing.dto.ClientRegistrationRequest;
+import com.example.HW_2.client_processing.entity.BlacklistRegistry;
+import com.example.HW_2.client_processing.entity.Client;
+import com.example.HW_2.client_processing.repository.BlacklistRegistryRepository;
+import com.example.HW_2.client_processing.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +18,7 @@ public class ClientService {
     private final ClientRepository clientRepository;
     private final BlacklistRegistryRepository blacklistRegistryRepository;
 
-    public boolean isBlacklisted(com.example.HW2.client_processing.enums.DocumentType type, String documentId) {
+    public boolean isBlacklisted(com.example.HW_2.client_processing.enums.DocumentType type, String documentId) {
         Optional<BlacklistRegistry> registry = blacklistRegistryRepository.findByDocumentTypeAndDocumentId(type, documentId);
         return registry.isPresent();
     }

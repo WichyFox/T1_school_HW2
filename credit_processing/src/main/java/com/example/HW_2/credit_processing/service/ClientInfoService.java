@@ -1,6 +1,6 @@
-package com.example.HW2.credit_processing.service;
+package com.example.HW_2.credit_processing.service;
 
-import com.example.HW2.credit_processing.dto.ClientInfoDto;
+import com.example.HW_2.credit_processing.dto.ClientInfoDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ public class ClientInfoService {
 
     private final RestTemplate restTemplate;
 
-    @Value("${client-processing.url}")
+    @Value("${CLIENT_PROCESSING_URL.url}")
     private String clientProcessingUrl;
 
     public ClientInfoDto getClientInfo(Long clientId) {

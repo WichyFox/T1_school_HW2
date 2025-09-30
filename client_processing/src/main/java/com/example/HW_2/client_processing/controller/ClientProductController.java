@@ -1,9 +1,9 @@
-package com.example.HW2.client_processing.controller;
+package com.example.HW_2.client_processing.controller;
 
-import com.example.HW2.client_processing.dto.ClientProductDto;
-import com.example.HW2.client_processing.entity.ClientProduct;
-import com.example.HW2.client_processing.kafka.KafkaProducer;
-import com.example.HW2.client_processing.service.ClientProductService;
+import com.example.HW_2.client_processing.dto.ClientProductDto;
+import com.example.HW_2.client_processing.entity.ClientProduct;
+import com.example.HW_2.client_processing.kafka.KafkaProducer;
+import com.example.HW_2.client_processing.service.ClientProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,14 +21,13 @@ public class ClientProductController {
     @PostMapping
     public ResponseEntity<ClientProductDto> addClientProduct(@RequestBody ClientProductDto dto) {
         ClientProduct clientProduct = clientProductService.createClientProduct(dto);
-
-        // Отправка сообщения в Kafka
-        switch (clientProduct.getProductId().toString()) { // по ТЗ: DC, CC, NS, PENS → client_products
+        // по ТЗ: DC, CC, NS, PENS -> client_products
+        switch (clientProduct.getProductId().toString()) {
             case "DC", "CC", "NS", "PENS" -> kafkaProducer.sendToClientProducts(
                     clientProduct.getClientId() + "," + clientProduct.getProductId()
             );
             case "IPO", "PC", "AC" -> kafkaProducer.sendToClientCreditProducts(
-                    clientProduct.getClientId() + "," + clientProduct.getProductId() + ",1000000,0.22,60" // пример суммы, ставка, месяцы
+                    clientProduct.getClientId() + "," + clientProduct.getProductId() + ",1000000,0.22,60"
             );
         }
 

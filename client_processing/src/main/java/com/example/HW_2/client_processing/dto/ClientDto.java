@@ -1,7 +1,7 @@
-package com.example.HW2.client_processing.dto;
+package com.example.HW_2.client_processing.dto;
 
-import com.example.HW2.client_processing.entity.Client;
-import com.example.HW2.client_processing.enums.DocumentType;
+import com.example.HW_2.client_processing.entity.Client;
+import com.example.HW_2.client_processing.enums.DocumentType;
 import lombok.*;
 
 import java.time.LocalDate;

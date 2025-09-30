@@ -1,6 +1,6 @@
-package com.example.HW2.credit_processing.repository;
+package com.example.HW_2.credit_processing.repository;
 
-import com.example.HW2.credit_processing.entity.ProductRegistry;
+import com.example.HW_2.credit_processing.entity.ProductRegistry;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

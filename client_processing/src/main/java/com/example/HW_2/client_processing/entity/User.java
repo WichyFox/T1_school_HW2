@@ -1,4 +1,4 @@
-package com.example.HW2.client_processing.entity;
+package com.example.HW_2.client_processing.entity;
 
 import jakarta.persistence.*;
 import lombok.*;

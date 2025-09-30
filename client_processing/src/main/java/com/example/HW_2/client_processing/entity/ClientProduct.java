@@ -1,6 +1,6 @@
-package com.example.HW2.client_processing.entity;
+package com.example.HW_2.client_processing.entity;
 
-import com.example.HW2.client_processing.enums.ProductStatus;
+import com.example.HW_2.client_processing.enums.ProductStatus;
 import jakarta.persistence.*;
 import lombok.*;
 

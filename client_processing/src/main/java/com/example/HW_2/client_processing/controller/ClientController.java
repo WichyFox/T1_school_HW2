@@ -1,12 +1,12 @@
-package com.example.HW2.client_processing.controller;
+package com.example.HW_2.client_processing.controller;
 
-import com.example.HW2.client_processing.dto.ClientDto;
-import com.example.HW2.client_processing.dto.ClientRegistrationRequest;
-import com.example.HW2.client_processing.dto.UserDto;
-import com.example.HW2.client_processing.entity.Client;
-import com.example.HW2.client_processing.entity.User;
-import com.example.HW2.client_processing.service.ClientService;
-import com.example.HW2.client_processing.service.UserService;
+import com.example.HW_2.client_processing.dto.ClientDto;
+import com.example.HW_2.client_processing.dto.ClientRegistrationRequest;
+import com.example.HW_2.client_processing.dto.UserDto;
+import com.example.HW_2.client_processing.entity.Client;
+import com.example.HW_2.client_processing.entity.User;
+import com.example.HW_2.client_processing.service.ClientService;
+import com.example.HW_2.client_processing.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,16 +21,11 @@ public class ClientController {
 
     @PostMapping("/register")
     public ResponseEntity<UserDto> registerClient(@RequestBody ClientRegistrationRequest request) {
-        // Проверка черного списка
         boolean blacklisted = clientService.isBlacklisted(request.getDocumentType(), request.getDocumentId());
         if (blacklisted) {
             return ResponseEntity.status(403).build();
         }
-
-        // Создание клиента
         Client client = clientService.createClient(request);
-
-        // Создание user
         User user = userService.createUser(client.getUserId(), request.getLogin(), request.getPassword(), request.getEmail());
 
         UserDto response = UserDto.builder()

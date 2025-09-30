@@ -1,4 +1,4 @@
-package com.example.HW2.client_processing.kafka;
+package com.example.HW_2.client_processing.kafka;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

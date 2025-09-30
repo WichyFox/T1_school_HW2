@@ -1,7 +1,7 @@
-package com.example.HW2.credit_processing.controller;
+package com.example.HW_2.credit_processing.controller;
 
-import com.example.HW2.credit_processing.entity.ProductRegistry;
-import com.example.HW2.credit_processing.service.CreditService;
+import com.example.HW_2.credit_processing.entity.ProductRegistry;
+import com.example.HW_2.credit_processing.service.CreditProcessingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,12 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.math.BigDecimal;
 import java.util.List;
 
-@RestController
-@RequestMapping("/credits")
 @RequiredArgsConstructor
+@RestController
 public class CreditController {
-
-    private final CreditService creditService;
+    private final CreditProcessingService creditProcessingService;
 
     @PostMapping("/open")
     public ResponseEntity<ProductRegistry> openCredit(
@@ -24,12 +22,12 @@ public class CreditController {
             @RequestParam BigDecimal interestRate,
             @RequestParam int monthCount
     ) {
-        ProductRegistry registry = creditService.createProductRegistry(clientId, productId, sum, interestRate, monthCount);
+        ProductRegistry registry = creditProcessingService.createProductRegistry(clientId, productId, sum, interestRate, monthCount);
         return ResponseEntity.ok(registry);
     }
 
     @GetMapping("/client/{clientId}")
     public ResponseEntity<List<ProductRegistry>> getClientCredits(@PathVariable Long clientId) {
-        return ResponseEntity.ok(creditService.getClientProducts(clientId));
+        return ResponseEntity.ok(creditProcessingService.getClientProducts(clientId));
     }
 }

@@ -1,5 +1,5 @@
 // CardRequestDto.java
-package com.example.HW2.client_processing.dto;
+package com.example.HW_2.client_processing.dto;
 
 import lombok.Data;
 

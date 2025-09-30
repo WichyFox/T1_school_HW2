@@ -1,8 +1,8 @@
-package com.example.HW2.client_processing.service;
+package com.example.HW_2.client_processing.service;
 
-import com.example.HW2.client_processing.entity.BlacklistRegistry;
-import com.example.HW2.client_processing.enums.DocumentType;
-import com.example.HW2.client_processing.repository.BlacklistRegistryRepository;
+import com.example.HW_2.client_processing.entity.BlacklistRegistry;
+import com.example.HW_2.client_processing.enums.DocumentType;
+import com.example.HW_2.client_processing.repository.BlacklistRegistryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

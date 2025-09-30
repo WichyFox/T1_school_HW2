@@ -1,7 +1,7 @@
 // ClientProductDto.java
-package com.example.HW2.client_processing.dto;
+package com.example.HW_2.client_processing.dto;
 
-import com.example.HW2.client_processing.entity.ClientProduct;
+import com.example.HW_2.client_processing.entity.ClientProduct;
 import lombok.Data;
 import lombok.Builder;
 

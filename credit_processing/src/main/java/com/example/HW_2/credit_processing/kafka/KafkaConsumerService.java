@@ -1,7 +1,7 @@
-package com.example.HW2.credit_processing.kafka;
+package com.example.HW_2.credit_processing.kafka;
 
-import com.example.HW2.credit_processing.entity.ProductRegistry;
-import com.example.HW2.credit_processing.service.CreditService;
+import com.example.HW_2.credit_processing.entity.ProductRegistry;
+import com.example.HW_2.credit_processing.service.CreditProcessingService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -14,13 +14,13 @@ import java.math.BigDecimal;
 @RequiredArgsConstructor
 public class KafkaConsumerService {
 
-    private final CreditService creditService;
+    private final CreditProcessingService creditService;
 
-    @KafkaListener(topics = "client_credit_products", groupId = "credit-processing")
+    @KafkaListener(topics = "client_credit_products", groupId = "credit_processing")
     public void consumeClientCreditProduct(String message) {
-        log.info("📩 Получено сообщение из client_credit_products: {}", message);
+        log.info("Получено сообщение из client_credit_products: {}", message);
 
-        // Для простоты допустим формат сообщения: clientId:productId:sum:rate:months
+        //clientId:productId:sum:rate:months
         try {
             String[] parts = message.split(":");
             Long clientId = Long.valueOf(parts[0]);
@@ -33,10 +33,10 @@ public class KafkaConsumerService {
                     clientId, productId, sum, interestRate, months
             );
 
-            log.info("✅ Открыт кредитный продукт {} для клиента {}", registry.getId(), clientId);
+            log.info("Открыт кредитный продукт {} для клиента {}", registry.getId(), clientId);
 
         } catch (Exception e) {
-            log.error("❌ Ошибка при обработке кредитного продукта: {}", e.getMessage());
+            log.error("Ошибка при обработке кредитного продукта: {}", e.getMessage());
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.example.HW2.credit_processing.dto;
+package com.example.HW_2.credit_processing.dto;
 
 import lombok.*;
 
